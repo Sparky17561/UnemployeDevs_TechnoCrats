@@ -10,14 +10,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -----------------------------
 # SECURITY
 # -----------------------------
-SECRET_KEY = os.getenv("SECRET_KEY", "local-dev-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")
 
-DEBUG = os.getenv("DEBUG", "True") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "*",                                # local + dev
-    "jobsphere-v1.vercel.app",          # your frontend
-    ".onrender.com",                    # render backend host
+    "*",
+    "jobsphere-v1.vercel.app",
+    "jobsphere-backend-o8tn.onrender.com",
+    ".onrender.com",
 ]
 
 # -----------------------------
@@ -33,7 +34,7 @@ INSTALLED_APPS = [
 
     'corsheaders',
 
-    # Your Apps
+    # Your apps
     'resume',
     'coldconnect',
     'users',
@@ -45,12 +46,11 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    # CORS
     'corsheaders.middleware.CorsMiddleware',
 
-    # Session + CSRF + Auth Middlewares
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Add template folders if needed
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # -----------------------------
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Your current DB
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -109,7 +109,7 @@ USE_I18N = True
 USE_TZ = True
 
 # -----------------------------
-# STATIC & MEDIA FILES
+# STATIC & MEDIA
 # -----------------------------
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -117,21 +117,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# TEMP folder inside media
+# Temp folder inside media
 TEMP_FOLDER = os.path.join(MEDIA_ROOT, "temp")
 os.makedirs(TEMP_FOLDER, exist_ok=True)
 
 # -----------------------------
-# CORS CONFIG (Render + Vercel)
+# CORS + CSRF CONFIG
 # -----------------------------
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://jobsphere-v1.vercel.app",   # frontend
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:5173",
+    "https://jobsphere-v1.vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://jobsphere-v1.vercel.app",
+    "https://jobsphere-backend-o8tn.onrender.com",
 ]
 
 CORS_ALLOW_HEADERS = [
@@ -158,10 +159,10 @@ CORS_ALLOW_METHODS = [
 # -----------------------------
 # MONGO SETTINGS
 # -----------------------------
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+MONGO_URI = os.getenv("MONGO_URI", "")
 MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "resume_db")
 
 # -----------------------------
-# DEFAULT PRIMARY KEY FIELD
+# DEFAULT AUTO FIELD
 # -----------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

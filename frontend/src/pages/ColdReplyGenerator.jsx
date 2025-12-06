@@ -98,7 +98,7 @@ const ColdReplyGenerator = () => {
     formData.append("resume_file", emailForm.resume_file);
 
     try {
-      const response = await fetch("http://localhost:8000/coldconnect/cold-mail/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/coldconnect/cold-mail/", {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -140,7 +140,7 @@ const ColdReplyGenerator = () => {
     formData.append("resume_file", coverLetterForm.resume_file);
 
     try {
-      const response = await fetch("http://localhost:8000/coldconnect/cover-letter/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/coldconnect/cover-letter/", {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -183,7 +183,7 @@ const ColdReplyGenerator = () => {
     formData.append("resume_file", coldDmForm.resume_file);
 
     try {
-      const response = await fetch("http://localhost:8000/coldconnect/cold-dm/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/coldconnect/cold-dm/", {
         method: "POST",
         credentials: "include",
         body: formData,

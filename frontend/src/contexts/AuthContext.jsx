@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch("http://localhost:8000/user/profile/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/profile/", {
         method: "GET",
         credentials: "include",
       });
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:8000/user/login/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
 
       if (data.success) {
         // Fetch profile data
-        const profileResponse = await fetch("http://localhost:8000/user/profile/", {
+        const profileResponse = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/profile/", {
           method: "GET",
           credentials: "include",
         });
@@ -94,7 +94,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await fetch("http://localhost:8000/user/signup/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/signup/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -121,7 +121,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await fetch("http://localhost:8000/user/logout/", {
+      await fetch("https://jobsphere-backend-o8tn.onrender.com/user/logout/", {
         method: "POST",
         credentials: "include",
       });
@@ -137,7 +137,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (profileData) => {
     try {
-      const response = await fetch("http://localhost:8000/user/profile/update/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/profile/update/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -163,7 +163,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchProfile = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:8000/user/profile/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/profile/", {
         method: "GET",
         credentials: "include",
       });
@@ -190,7 +190,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateGeminiKey = async (key) => {
     try {
-      const response = await fetch("http://localhost:8000/user/gemini/update/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/gemini/update/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

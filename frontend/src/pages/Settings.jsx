@@ -99,7 +99,7 @@ const Settings = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:8000/user/delete/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/user/delete/", {
         method: "DELETE",
         credentials: "include",
       });

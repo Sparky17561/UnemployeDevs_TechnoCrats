@@ -33,7 +33,7 @@ const PrepHub = () => {
     setPrepData(null);
 
     try {
-      const response = await fetch("http://localhost:8000/resume/prep-hub/search/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/resume/prep-hub/search/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

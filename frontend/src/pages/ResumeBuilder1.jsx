@@ -178,7 +178,7 @@ const ResumeBuilder1 = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/resume/generate/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/resume/generate/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -228,7 +228,7 @@ const ResumeBuilder1 = () => {
     setSuccess("");
 
     try {
-      const response = await fetch("http://localhost:8000/resume/enhance/", {
+      const response = await fetch("https://jobsphere-backend-o8tn.onrender.com/resume/enhance/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -300,7 +300,7 @@ const ResumeBuilder1 = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/resume/pdf/${currentResumeId}/`,
+        `https://jobsphere-backend-o8tn.onrender.com/resume/pdf/${currentResumeId}/`,
         {
           method: "GET",
           credentials: "include",
